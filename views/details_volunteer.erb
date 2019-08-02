@@ -1,0 +1,10 @@
+<div class="container"
+  <h2>Edit Volunteer Info</h2>
+  <form class="form-group" action="/volunteer/<%= @volunteer.id %>/edit" method="post">
+    <label for="">Name</label>
+    <input type="text" name="name" value="">
+    <button type="submit">Update Volunteer</button>
+      <button type="submit" formaction="/volunteer/<%= @volunteer.id %>/delete" method="post">Kill Volunteer</button></a>
+    <a href="/"><button>Cancel</button></a>
+  </form>
+</div>

@@ -45,3 +45,23 @@ post('/projects/:project_id/delete')do
   project.delete
   redirect to ('/')
 end
+
+get ('/volunteer/:volunteer_id')do
+    @volunteer = Volunteer.find(params[:volunteer_id])
+    erb :details_volunteer
+end
+
+post('/volunteer/:volunteer_id/edit')do
+  @volunteer = Volunteer.find(params[:volunteer_id])
+  @volunteer.update({:name => params[:name]})
+  @project_id = @volunteer.project_id
+  redirect to ("/projects/#{@project_id}")
+end
+
+post ('/projects/:project_id/add_vol')do
+  vol_name = params[:volunteer_name]
+  project_id = params[:project_id]
+  volunteer = Volunteer.new({:name => vol_name, :project_id => project_id})
+  volunteer.save
+  redirect to ("/projects/#{project_id}")
+end
