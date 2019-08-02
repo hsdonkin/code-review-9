@@ -1,5 +1,4 @@
 require "spec_helper"
-require 'pry'
 
 # this is a single line solution for requiring many files
 Dir["./lib/*.rb"].each {|file| require file }

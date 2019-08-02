@@ -12,6 +12,8 @@ class Project
     # overriding the equals operator to check if title and id are the same, instead of comparing to see if it's the same object
     if self.title == project.title && self.id == project.id
         true
+    else
+        false
     end
   end
 
@@ -36,7 +38,7 @@ class Project
     # DB returns the ID of whatever was inserted, which is set as the new ID value for this project object
     new_id = DB.exec("INSERT INTO projects (title) VALUES ('#{self.title}') RETURNING id;").first["id"].to_i
     # update the ID of the project object
-    @id = new_id
+    self.id = new_id
   end
 
 end
