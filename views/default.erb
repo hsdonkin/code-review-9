@@ -10,7 +10,7 @@
 <% if Project.all.any? %>
 <div class="container">
   <% Project.all.each do |project| %>
-  <div class ="container">
+  <div class ="container project-default">
     <h3><a href="/projects/<%= project.id %>"><%= project.title %></a></h3>
     <p>Project ID: <%= project.id %></p>
   </div>
