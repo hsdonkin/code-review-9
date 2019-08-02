@@ -22,6 +22,13 @@ class Volunteer
     return volunteers
   end
 
+  def self.find(vol_id)
+    # gate checking if the project_id is a string or integer
+    vol_id = vol_id.to_i
+    result = DB.exec("SELECT * FROM volunteers WHERE id ='#{vol_id}';").first
+    Volunteer.new({:name => result["name"], :id => result["id"].to_i, :project_id => result["project_id"]})
+  end
+
   def save
     # DB returns the ID of whatever was inserted, which is set as the new ID value for this project object
     new_id = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{self.name}', '#{self.project_id}') RETURNING id;").first["id"].to_i
