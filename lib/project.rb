@@ -41,4 +41,14 @@ class Project
     self.id = new_id
   end
 
+  def volunteers
+    result = DB.exec("SELECT * FROM volunteers WHERE project_id='#{self.id}'")
+    volunteers = []
+    result.each do |volunteer|
+      vol = Volunteer.new({:name => volunteer["name"], :id => volunteer["id"].to_i, :project_id => volunteer["project_id"].to_i})
+      volunteers.push(vol)
+    end
+    return volunteers
+  end
+
 end
