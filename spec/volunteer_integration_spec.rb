@@ -17,7 +17,7 @@ describe 'the project creation path', {:type => :feature} do
     visit '/'
     fill_in('title', :with => 'Teaching Kids to Code')
     click_button('Create Project')
-    binding.pry
+
     expect(page).to have_content('Teaching Kids to Code')
   end
 end
@@ -37,8 +37,8 @@ describe 'the project update path', {:type => :feature} do
   end
 end
 
-# # A user should be able to nagivate to a project's detail page and delete the project. The user will then be directed to the index page. The project should no longer be on the list of projects.
-#
+# A user should be able to nagivate to a project's detail page and delete the project. The user will then be directed to the index page. The project should no longer be on the list of projects.
+
 # describe 'the project delete path', {:type => :feature} do
 #   it 'allows a user to delete a project' do
 #     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
@@ -50,7 +50,7 @@ end
 #     expect(page).not_to have_content("Teaching Kids to Code")
 #   end
 # end
-#
+
 # # The user should be able to click on a project detail page and see a list of all volunteers working on that project. The user should be able to click on a volunteer to see the volunteer's detail page.
 #
 # describe 'the volunteer detail page path', {:type => :feature} do

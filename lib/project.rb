@@ -41,6 +41,12 @@ class Project
     self.id = new_id
   end
 
+  def delete
+    DB.exec("DELETE FROM projects WHERE id='#{self.id}';")
+    # there isn't a null value for integers, so 0 means no project if there are volunteers in the system
+    DB.exec("UPDATE volunteers SET project_id='0' WHERE project_id='#{self.id}';")
+  end
+
   def update(attr_hash)
     # ok so...
     # this is an overkill solution, but kind of cool because it allows for partial upating of attributes, AKA an incomplete attr hash, like if a project had an attribute such as @city

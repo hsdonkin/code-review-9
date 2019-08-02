@@ -21,7 +21,7 @@ post ('/new_project')do
   redirect to ('/')
 end
 
-get ('/:project_id')do
+get ('/projects/:project_id')do
   @project = Project.find(params[:project_id])
   erb :details_project
 end
@@ -37,4 +37,9 @@ post ('/edit/:project_id')do
     project = Project.find(project_id)
     project.update({:title => project_title})
     redirect to ('/')
+end
+
+post('/projects/:project_id/delete')do
+  project_id = params[:project_id].to_i
+  project = Project.find(project_id)
 end

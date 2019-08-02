@@ -4,6 +4,7 @@
     <label for="">Project Title</label>
     <input type="text" name="title" value="<%= @project.title %>">
     <button type="submit">Update Project</button>
-    <button type="button" action="/" method="get">Cancel</button>
+      <button type="submit" formaction="/projects/<%= @project.id %>/delete" method="post">Delete Project</button></a>
+    <a href="/"><button type="button" method="get">Cancel</button></a>
   </form>
 </div>
