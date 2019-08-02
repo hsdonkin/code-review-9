@@ -26,12 +26,12 @@ get ('/projects/:project_id')do
   erb :details_project
 end
 
-get ('/edit/:project_id')do
+get ('/projects/:project_id/edit')do
     @project = Project.find(params[:project_id])
     erb :edit_project
 end
 
-post ('/edit/:project_id')do
+post ('/projects/:project_id/edit')do
     project_title = params[:title]
     project_id = params[:project_id].to_i
     project = Project.find(project_id)
@@ -42,4 +42,6 @@ end
 post('/projects/:project_id/delete')do
   project_id = params[:project_id].to_i
   project = Project.find(project_id)
+  project.delete
+  redirect to ('/')
 end
