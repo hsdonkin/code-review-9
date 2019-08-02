@@ -1,0 +1,17 @@
+<div class="container"
+  <h2>Create a Project</h2>
+  <form class="form-group" action="/new_project" method="post">
+    <label for="">Title</label>
+    <input type="text" name="title" value="">
+    <button type="submit">Create Project</button>
+  </form>
+</div>
+
+<% if Project.all.any? %>
+  <% Project.all.each do |project| %>
+  <div class ="container">
+    <h3><%= project.title %></h3>
+    <p>Project ID: <%= project.id %></p>
+  </div>
+  <% end %>
+<% end %>

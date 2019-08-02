@@ -52,9 +52,9 @@ class Project
         # using the value from the hash at that key
         # attr_hash[:title] => "Project Title"
         # self.title= "Project Title"
+        # IDEA: use a rescue here if the method errors out
         self.public_send(key.to_s + "=", attr_hash[key])
         #then update the database
-        binding.pry
         # don't want to try and change the ID of the object because the ID should be a permanent value, and ID is technically an accessor right now
         if key != :id
           DB.exec("UPDATE projects SET #{key.to_s} = '#{attr_hash[key]}' WHERE id=#{self.id.to_i} ;")
