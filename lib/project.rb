@@ -25,6 +25,13 @@ class Project
     return projects
   end
 
+  def self.find(project_id)
+    # gate checking if the project_id is a string or integer
+    project_id = project_id.to_i
+    result = DB.exec("SELECT * FROM projects WHERE id ='#{project_id}'").first
+    Project.new({:title => result["title"], :id => result["id"].to_i})
+  end
+
   def save
     # DB returns the ID of whatever was inserted, which is set as the new ID value for this project object
     new_id = DB.exec("INSERT INTO projects (title) VALUES ('#{self.title}') RETURNING id;").first["id"].to_i
