@@ -4,7 +4,7 @@
   <a href="/projects/<%= @project.id %>/edit">Edit Project</a>
   <form class="" action="/projects/<%= @project.id %>/add_vol" method="post">
     <label for="">Add Volunteer</label>
-    <input type="text" name="volunteer_name" value="">
+    <input type="text" name="volunteer_name" value="" required>
     <button type="submit">Add Volunteer</button>
   </form>
   <% if @project.volunteers.any? %>

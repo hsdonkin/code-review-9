@@ -2,7 +2,7 @@
   <h2>Edit Volunteer Info</h2>
   <form name="edit_vol" class="form-group" action="/volunteer/<%= @volunteer.id %>/edit" method="post">
     <label for="">Name</label>
-    <input type="text" name="name" value="">
+    <input type="text" name="name" value="" required>
     <button type="submit">Update Volunteer</button>
       <button class="kill" type="submit" formaction="/volunteer/<%= @volunteer.id %>/delete" method="post">Kill Volunteer</button></a>
     <a href="/"><button>Cancel</button></a>
